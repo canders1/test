@@ -1,0 +1,11 @@
+# Site settings
+title: Carolyn Jane Anderson
+email: your-email@domain.com
+description: "Description. Appears in document head meta (for Google search results) and in feed.xml site description."
+baseurl: ""
+url: "http://yourdomain.com"
+github_username:  canders1
+
+# Build settings
+markdown: kramdown
+permalink: pretty

@@ -1,0 +1,78 @@
+---
+title: "Visualing Free Response Data"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup}
+library(tidyverse)
+library(quanteda)
+library(reshape2)
+```
+
+```{r}
+#import data
+n <- c("receiveTime", "participant", "controller", "item", "element", "type", "group", "question", "answer", "go","come","manner","bring","take","here","Q","tense","subj","dest")
+pairs <- read.csv('~/dissertation/experiments/production/results/production_results_annotated.csv',header=FALSE,col.names=n,comment.char = "#")
+```
+
+```{r}
+#Exclude participants who mixed up the characters
+exclude.list <- c("5b6addc9033f1200015e8975") #Participant reported that they mixed up the characters
+pairs <- subset(pairs, !(participant == "86dd8f54673d9c819e481b6eba0301b7"))
+```
+
+```{r}
+#Remove training items and correct type of columns
+db.raw <- subset(pairs,controller=='Form')
+pairs <- pairs %>% mutate(question = lag(question))
+main <- subset(pairs,controller=='ComicProduction'|controller=='SpatialProduction')
+main$type <- as.character(main$type)
+main$item <- as.factor(main$item)
+main$answer <- as.character(main$answer)
+#main <- main %>% mutate(verb = ifelse(come==1,'come',ifelse(go==1,'go',ifelse(manner==1,'manner','none'))))
+#Rename conditions to be more general
+main <- main %>% group_by(participant,item) %>% 
+  mutate(type = replace(type, grepl("item-both",type,fixed=TRUE), "item-both"),
+           type = replace(type,grepl("item-none",type,fixed=TRUE),"item-none"),
+           type = replace(type,grepl("item-speaker",type,fixed=TRUE),"item-speaker"),
+           type = replace(type,grepl("item-listener",type,fixed=TRUE),"item-listener"),
+           type = replace(type,grepl("filler-false",type,fixed=TRUE),"filler-false"),
+           type = replace(type,grepl("filler-true",type,fixed=TRUE),"filler-true"))
+
+main$type <- factor(main$type)
+```
+
+```{r}
+#Reshape and add survey info
+db.raw <- db.raw[c(1,2,8,9)]
+db.cast<- dcast(db.raw, participant ~ question,value='answer')
+main <- merge(main,db.cast,by="participant")
+main <- main %>% rowwise() %>% mutate(doc_id = paste(participant,item))
+```
+
+```{r}
+#Main conditions
+main.items <- subset(main,grepl("item",type,fixed=TRUE)&controller=='ComicProduction')
+
+#Fillers
+fillers <- subset(main,grepl("filler",type,fixed=TRUE))
+
+#Spatial items
+spatial.items <- subset(main,controller=='SpatialProduction')
+
+#Participant means of main conditions
+mean.by.participant <- main.items %>% group_by(participant,type) %>% summarize(mean(come),mean(go),mean(manner))
+```
+
+### Datasets provided:
+
+main.items : items from the main conditions of the experiment, plus demographic information. Conditions: both, speaker, listener, none.
+
+fillers : filler items, plus demographic information. Conditions: true, false.
+
+spatial.items : spatial control items. Conditions: left, between, close.
+
+mean.by.participant : participant means for main conditions
+
