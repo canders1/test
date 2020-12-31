@@ -28,11 +28,11 @@
   background-color: #ffffff;
  }
 
-@media (min-width: 1200px) {
+
 .navbar {
 background-image:url('../img/paper.png');
 }
-}
+
 
 navbar-inverse .navbar-brand {
 color: #BA782A; /*#81F7BE;*/
@@ -69,7 +69,13 @@ padding: 10px 15px;
 
 .navbar-brand {
  padding: 0px 15px;
- padding-left: 15pt;
+ padding-left: 0pt; 
+}
+
+@media (min-width: 600px) {
+  .navbar-brand {
+    padding-right: 200pt;
+  }
 }
 
  footer h5 {
