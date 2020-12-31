@@ -4,6 +4,13 @@
   font-weight: 600;
  }
 
+.navbar-nav{
+
+}
+
+.navbar-expand-lg{
+  justify-content: space-between;
+}
 
 .navbar-header{
   background-color: #EEEEEE;
