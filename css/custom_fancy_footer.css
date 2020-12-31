@@ -13,7 +13,7 @@
 
  .navbar-inverse {
   color:#3A3838;
-  background-size: contain;
+  background-size: cover;
   background-repeat:no-repeat;
   background-position:center;  
   background-color: inherit; 
@@ -24,7 +24,7 @@
 
 @media (min-width: 1200px) {
 .navbar-inverse {
-background-image:url('../img/paper_thin.png');
+background-image:url('../img/paper.png');
 }
 }
 
