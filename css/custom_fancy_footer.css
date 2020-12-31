@@ -11,6 +11,11 @@
  border-bottom:none;
  }
 
+.navbar-header{
+  background-color: #EEEEEE;
+  padding-left: -35pt;
+}
+
  .navbar {
   color:#3A3838;
   background-size: cover;
