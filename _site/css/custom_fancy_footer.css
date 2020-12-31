@@ -68,8 +68,10 @@ padding: 10px 15px;
 }
 
 .navbar-brand > h2 > a > p {
-  background-color: #EEEEEE;
-  padding: 10px;
+  /*background-color: #EEEEEE;
+  padding: 12px;*/
+  margin-top: -12px;
+  font-size: 18pt;
 }
 
 @media (min-width: 600px) {
