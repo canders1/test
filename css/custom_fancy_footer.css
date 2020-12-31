@@ -4,16 +4,10 @@
   font-weight: 600;
  }
 
- .page-header {
- padding-bottom: 10%px;
- margin-right: 10%px;
- margin-left: 10%px;
- border-bottom:none;
- }
 
 .navbar-header{
   background-color: #EEEEEE;
-  padding-left: -35pt;
+  padding-left: -50pt;
 }
 
  .navbar {
