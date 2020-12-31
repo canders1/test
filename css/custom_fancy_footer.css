@@ -4,10 +4,6 @@
   font-weight: 600;
  }
 
-.navbar-nav{
-
-}
-
 .navbar-expand-lg{
   justify-content: space-between;
 }
@@ -65,6 +61,10 @@ padding: 10px 15px;
  padding: 0px 15px;
  padding-left: 0pt; 
  height: 60px;
+}
+
+p > a {
+  color: #BA782A;
 }
 
 .navbar-brand > h2 > a > p {
