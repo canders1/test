@@ -67,7 +67,7 @@ padding: 10px 15px;
  height: 60px;
 }
 
-.navbar-brand > li > a {
+.navbar-brand > h2 > a > p {
   background-color: #EEEEEE;
 }
 
