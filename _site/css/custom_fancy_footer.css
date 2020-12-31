@@ -18,7 +18,7 @@
   background-position:center;  
   background-color: inherit; 
   border-color: #000;
-  border-style: dotted;
+  border-style: none;
   background-color: #ffffff;
  }
 
@@ -29,7 +29,7 @@ background-image:url('../img/paper.png');
 }
 
 navbar-inverse .navbar-brand {
-color: #81F7BE;
+color: #BA782A; /*#81F7BE;*/
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -41,7 +41,7 @@ color: #000;
 }
 
 .navbar-toggle {
-background-color: #81F7BE;
+background-color: #BA782A;
 }
 
 .navbar-right {
