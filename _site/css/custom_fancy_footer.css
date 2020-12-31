@@ -71,6 +71,10 @@ p > a > b {
   color: #BA782A;
 }
 
+p > a > h5 {
+  color: #BA782A;
+}
+
 .navbar-brand > h2 > a > p {
   /*background-color: #EEEEEE;
   padding: 12px;*/
