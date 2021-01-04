@@ -19,6 +19,10 @@
   background-color: #ffffff;
  }
 
+.nomarg {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
 .navbar {
 background-image:url('../img/paper.jpg');
