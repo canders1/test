@@ -67,11 +67,15 @@ p > a {
   color: #BA782A;
 }
 
-p > b > a >  {
+b > a >  {
   color: #BA782A;
 }
 
 h5 > a {
+  color: #BA782A;
+}
+
+a {
   color: #BA782A;
 }
 
